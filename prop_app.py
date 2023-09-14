@@ -30,6 +30,7 @@ def main():
                 st_cb = StreamHandler(st.empty())
                 response = agent.run(user_query, callbacks=[st_cb])
                 st.session_state.messages.append({"role": "PropGPT", "content": response})
+                st.write(response)
 
 if __name__ == "__main__":
     main()
