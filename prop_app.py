@@ -27,7 +27,7 @@ def main():
         if user_query:
             utils.display_msg(user_query, 'user')
             with st.chat_message("PropGPT"):
-                st_cb = StreamHandler(st.empty())
+                st_cb = StreamlitCallbackHandler(st.container())
                 response = agent.run(user_query, callbacks=[st_cb])
                 st.session_state.messages.append({"role": "PropGPT", "content": response})
                 st.write(response)
