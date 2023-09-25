@@ -251,7 +251,7 @@ chain_search = LLMChain(
 
 search_desc = """
 
-Use this tool only to find or fetch or to suggest flats, office spaces, retail shop based on user query.
+Use this tool only to fetch or to suggest flats, office spaces, retail shop based on user query.
 Do not use this tool for rental related queries.
 
 This tool only takes a single parameter called user query.
