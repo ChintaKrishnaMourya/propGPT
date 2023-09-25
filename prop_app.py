@@ -9,7 +9,7 @@ st.set_page_config(
     page_icon='🏠',
     layout='wide'
 )
-st.header('PropGPT')
+st.header('PropGPT', divider= 'rainbow')
 st.caption(':blue[_beta_]')
 
 @utils.enable_chat_history
