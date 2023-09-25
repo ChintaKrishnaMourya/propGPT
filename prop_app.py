@@ -10,7 +10,7 @@ st.set_page_config(
     layout='wide'
 )
 st.header('PropGPT')
-st.caption(_beta_)
+st.caption('blue[_beta_]')
 
 @utils.enable_chat_history
 # def main():
