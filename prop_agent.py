@@ -458,7 +458,7 @@ tools = [
 agent_llm = ChatOpenAI(
         openai_api_key=OPENAI_API_KEY,
         temperature=0,
-        model_name='gpt-3.5-turbo',
+        model_name='gpt-3.5-turbo-16k',
         streaming=True
 )
 
