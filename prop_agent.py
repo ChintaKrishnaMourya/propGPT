@@ -193,7 +193,7 @@ def general_search(query):
 
     for l, i in enumerate(result['matches']):
           ind = f"Match {l + 1} is: "
-          data += ind + str(i['metadata']['text']) + '\n\n'
+          data += ind + str(i['metadata']['page_content']) + '\n\n'
     return data
 
 wrapper = DuckDuckGoSearchAPIWrapper(max_results=10)
