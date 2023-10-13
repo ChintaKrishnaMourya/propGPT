@@ -61,15 +61,13 @@ def search_filter(question):
 
     prompt = ChatPromptTemplate(
         messages=[
-            HumanMessagePromptTemplate.from_template('''Find the right values from the question. If price mentioned in the question, try to find whether if comes under starting price or ending price, then proceed. If asked below 1 crore, that means ending price is 1cr. if asked above 1 crore, that means starting price is 1cr. If ending price, starting price, write answer in digits. For example instead of 3crore write 30000000.\
-                                                     For Status, give one or multiple of these values - ```'Ready to Move','Under Construction' ``` based on the question.\
-                                                     For Type, give one or multiple of these values - ```'Flat', 'Retail Shop', 'Office Space', 'Villa', 'Retail Shop/ Office Space' ``` based on the question.\
-                                                     If the question contains i got a job in amazon office, hyderabad, do not take it as office space.
-                                                     Find valid area, city from question. identify them correctly by your knowledge.
-                                                     There can multiple areas, cities in the question.
-                                                     For Area, give right values as area, do not confuse with city. For 'hitech city, hi- tech city, hi tech city' give as 'Hi Tech City'. For City, give cities as city not as area.\
-                                                     strictly capitalise the first letter of words in Area and City
-                                                     If you cannot find right values for the keys, give null as Value. \n{format_instructions}\n{question}''')
+            HumanMessagePromptTemplate.from_template('''''Find the right values from the question. If price mentioned in the question, try to find whether if comes under starting price or ending price, then proceed. If asked below 1M or 1000000 or 1 Million, that means AskingPrice is 1000000. If AskingPrice, write answer in digits. For example instead of 3million write 3000000.\
+                                                    For Bedrooms, give one of these integers values - ```1,2,3, so on upto 20 ``` based on the question.\
+                                                    For Type, give one of these values - ```'Sale', 'Rent' ``` based on the question.\
+                                                    For District, give one of these values - ```'D01','D02','D03','D04','D05',D06','D07','D08... so on upto D30```. If instead of D01, if it mentioned as D1, take it as D01. Follow this for other numbers too based on the question\
+                                                    For Furnishing, give one these values - ```'Unfurnished', 'Fully', 'Partial', 'Flexible'``` if furnishing status found in the question or else give null value \
+                                                    For FloorLevel, give one of the integer values - ```1,2,3, so on upto 20 ``` based on the question.\
+                                                    If you cannot find right values for the keys, give null as Value.Do not hallucinate and do not give random values unless mentioned in the question\n{format_instructions}\n{question}'''''')
         ],
         input_variables=["question"],
         partial_variables={"format_instructions": format_instructions}
